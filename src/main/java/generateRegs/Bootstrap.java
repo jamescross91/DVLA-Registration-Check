@@ -42,7 +42,7 @@ public class Bootstrap {
 
     @SneakyThrows
     private static void writeToFile() {
-        File file = new File("/users/James/Documents/registrations2.txt");
+        File file = new File("~/registrations2.txt");
 
         // if file doesnt exists, then create it
         if (!file.exists()) {
