@@ -26,8 +26,7 @@ public class VehicleCheckcouk extends GenericDataSource implements VehicleDataSo
             vehicle = parseDetailString(registration, detailString);
             storeInDb(vehicle);
         } catch(Exception e) {
-            //System.out.println("Failed to load data for " + registration);
-
+            System.out.println("Failed to load data for " + registration);
         }
 
         return vehicle;
