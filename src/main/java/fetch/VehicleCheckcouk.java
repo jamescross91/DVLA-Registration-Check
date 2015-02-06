@@ -15,15 +15,21 @@ public class VehicleCheckcouk extends GenericDataSource implements VehicleDataSo
 
     @Override
     public Vehicle loadInfo(String registration) {
+        Vehicle vehicle = null;
         Vehicle fromDb = fetchFromDb(registration);
         if(fromDb != null) {
             return fromDb;
         }
 
-        String detailString = loadPage(registration);
-        Vehicle vehicle = parseDetailString(registration, detailString);
+        try {
+            String detailString = loadPage(registration);
+            vehicle = parseDetailString(registration, detailString);
+            storeInDb(vehicle);
+        } catch(Exception e) {
+            //System.out.println("Failed to load data for " + registration);
 
-        storeInDb(vehicle);
+        }
+
         return vehicle;
     }
 
