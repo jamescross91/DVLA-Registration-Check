@@ -37,5 +37,12 @@
     <orderEntry type="library" name="Maven: nl.flotsam:xeger:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
+    <orderEntry type="library" name="Maven: org.silvertunnel-ng:netlib:0.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.studio:org.apache.httpcomponents.httpcore:4.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.studio:org.apache.httpcomponents.httpclient:4.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.3" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk16:140" level="project" />
   </component>
 </module>

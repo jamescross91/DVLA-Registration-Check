@@ -58,7 +58,19 @@ public class VehicleCheckcouk extends GenericDataSource implements VehicleDataSo
         String description = split[1].trim();
 
         vehicle.setColour(colour);
-        vehicle.setDescription(description);
+        vehicle = parseDescription(vehicle, description);
+
+        return vehicle;
+    }
+
+    private Vehicle parseDescription(Vehicle vehicle, String description) {
+        int year = Integer.parseInt(description.substring(0, 4));
+        int spaceAfterMake = description.indexOf(" ", 5);
+        String make = description.substring(5, spaceAfterMake);
+        String model = description.substring(spaceAfterMake + 1, description.length());
+        vehicle.setYear(year);
+        vehicle.setMake(make);
+        vehicle.setModel(model);
 
         return vehicle;
     }

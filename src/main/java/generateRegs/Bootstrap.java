@@ -1,18 +1,18 @@
 package generateRegs;
 
 import fetch.VehicleCheckcouk;
+import lombok.SneakyThrows;
 import nl.flotsam.xeger.Xeger;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bootstrap {
-    public static ExecutorService executorService = Executors.newFixedThreadPool(50);
     public static AtomicInteger counter = new AtomicInteger();
     public static AtomicInteger totalDone = new AtomicInteger();
     public static AtomicInteger totalChecked = new AtomicInteger();
     public static ModernValidator validator = new ModernValidator();
+
+    @SneakyThrows
     public static void main(String args[]) {
         VehicleCheckcouk vehicleCheckcouk = new VehicleCheckcouk();
 
@@ -26,7 +26,7 @@ public class Bootstrap {
                 continue;
             }
 
-            executorService.submit(loadData(reg, vehicleCheckcouk));
+            loadData(reg, vehicleCheckcouk).run();
             counter.getAndIncrement();
         }
 
@@ -40,13 +40,14 @@ public class Bootstrap {
         return new Runnable() {
             @Override
             public void run() {
-                if(validator.validateReg(reg)) {
-                    checker.loadInfo(reg);
+                String upper = reg.toUpperCase();
+                if(validator.validateReg(upper)) {
+                    checker.loadInfo(upper);
                     counter.decrementAndGet();
                     int total = totalDone.incrementAndGet();
 
-                    if((total % 1) == 0) {
-                        System.out.println("Total added to db: " + total);
+                    if((total % 100) == 0) {
+                        System.out.println("Total valid and checked: " + total);
                     }
                 }
 

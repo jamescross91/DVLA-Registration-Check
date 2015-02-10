@@ -9,5 +9,7 @@ public class Vehicle extends MongoBase{
     @Indexed(value= IndexDirection.ASC, name="emailAddressIndex", unique=true)
     private String registration;
     private String colour;
-    private String description;
+    private String make;
+    private int year;
+    private String model;
 }

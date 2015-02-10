@@ -21,9 +21,11 @@ public class ModernValidator {
 
     public boolean validateReg(String registration) {
         String prefix = registration.substring(0, 2);
-        String year = registration.substring(3, 5);
+        String year = registration.substring(2, 4);
 
-        if((!prefixes.contains(prefix)) || (!years.contains(year))) {
+        boolean prefixOk = prefixes.contains(prefix);
+        boolean yearOk = years.contains(year);
+        if((!prefixOk) || (!yearOk)) {
             return false;
         } else {
             return true;

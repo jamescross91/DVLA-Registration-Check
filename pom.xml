@@ -96,6 +96,11 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.silvertunnel-ng</groupId>
+            <artifactId>netlib</artifactId>
+            <version>0.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -105,7 +110,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>generateRegs.Bootstrap</mainClass>
+                            <mainClass>Bootstrap</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
